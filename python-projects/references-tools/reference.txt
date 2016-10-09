@@ -1,0 +1,4 @@
+
+Command Line Parameters: https://www.tutorialspoint.com/python/python_command_line_arguments.htm
+Types: https://docs.python.org/2/library/types.html
+
