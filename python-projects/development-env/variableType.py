@@ -1,5 +1,4 @@
 from types import *
-import sys
 """
 Script which is used to determine the type of variable entered by the
 user.
@@ -28,7 +27,6 @@ def stringParserForTypeChecker(variableToCheck):
 def main(variableToCheck):
 	print stringParserForTypeChecker(variableToCheck);
 
-try:
-	main(sys.argv[1]);
-except IndexError:
-	print "Command line arguments were not set correctly";
+"""Main user code to be ran"""
+user_input = eval(raw_input('Can you please enter some input?'));
+main(user_input);
