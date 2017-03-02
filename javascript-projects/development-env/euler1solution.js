@@ -24,15 +24,45 @@ function multipleFactor(number, limit)
 			currentNumber = currentNumber + this.number;
 			index++;
 		}
-		while(currentNumber <= this.limit);
+		while(currentNumber < this.limit);
 		
 		return arrayOfMultiples;
 	}
+
 }
 
-function printArray(arrayInput)
+function arrayOperations()
 {
-	this.arrayInput = arrayInput;
+	this.removedDuplicates = function(arrayA, arrayB)
+	{
+		var removedDuplicateArray = arrayA;
+		for(var a = 0; a < arrayB.length; a++)
+		{
+			if(arrayA.indexOf(arrayB[a]) < 0)
+			{
+				removedDuplicateArray.push(arrayB[a]);
+			}
+		}
+		return removedDuplicateArray;//
+	};
+	
+	this.sumArray = function(arrayA)
+	{
+		var sum = 0;
+		var index = 0;
+		while(index < arrayA.length)
+		{
+			sum = sum + arrayA[index];
+			index++;
+		}
+		return sum;	
+	}
+	
+}
+
+function printArray(arrayA)
+{
+	this.arrayInput = arrayA;
 	this.printContentsOfArray = function()
 	{
 		for(var index =0; index < this.arrayInput.length; index++)
@@ -43,7 +73,14 @@ function printArray(arrayInput)
 	}		
 }
 
-var a = new multipleFactor(3, 10);
-var b = a.multiplesOfNumber();;
-var c = new printArray(b);
-c.printContentsOfArray();
+var threeMultiplesObject = new multipleFactor(3, 1000);
+var fiveMultiplesObject = new multipleFactor(5, 1000);
+var threeMultiples = threeMultiplesObject.multiplesOfNumber();
+var fiveMultiples = fiveMultiplesObject.multiplesOfNumber();
+var printArrayObject = new printArray(threeMultiples);
+//printArrayObject.printContentsOfArray();
+var printArrayObject = new printArray(fiveMultiples);
+//printArrayObject.printContentsOfArray();
+var arrayOp = new arrayOperations();
+var removeDuplicatesArray = arrayOp.removedDuplicates(threeMultiples, fiveMultiples);
+document.write('Solution to the Euler problem 1 is: '.concat(arrayOp.sumArray(removeDuplicatesArray)));
