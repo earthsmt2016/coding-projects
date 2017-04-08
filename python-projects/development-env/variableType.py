@@ -28,5 +28,8 @@ def main(variableToCheck):
 	print stringParserForTypeChecker(variableToCheck);
 
 """Main user code to be ran"""
-user_input = eval(raw_input('Can you please enter some input?'));
-main(user_input);
+try:
+    user_input = eval(raw_input('Can you please enter some input?'));
+    main(user_input);
+except SyntaxError:
+    print "User has incorrect type which cannot be identified";
