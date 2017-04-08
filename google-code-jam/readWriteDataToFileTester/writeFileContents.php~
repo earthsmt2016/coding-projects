@@ -1,0 +1,22 @@
+<?php
+
+function writeArrayContents(array $contents)
+{
+	foreach($contents as $invContent)
+	{
+		writeSingleLine($invContent);
+	}
+}
+
+function writeSingleLine($fileContents)
+{
+	$myFile = fopen("dummyFileWrite.txt", "a+") or die ("Unable to open this file!");
+	fwrite($myFile, $fileContents);
+	fclose($myFile);
+}
+
+$text = array("Test 1", "Test 2");
+writeArrayContents($text);
+
+
+?>
